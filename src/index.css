@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rock+Salt&display=swap');
+
+html,
+body {
+   height: 100%;
+   margin: 0;
+   padding: 0;
+}
+
+/* Theme */
+body.light {
+   background-color: #ffffff;
+   color: #000000;
+   transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+   background-color: #333333;
+   color: #ffffff;
+   transition: background-color 0.3s, color 0.3s;
+}
+
+body.warm {
+   /* min-height: 100%; #Ensures the body is at least as tall as the viewport */
+   background: linear-gradient(45deg, rgba(246, 62, 123, 1) 60%, rgba(246, 62, 123, 0.5) 75%, rgba(246, 62, 123, 1) 90%);
+   background-repeat: no-repeat;
+   /* background-size: cover; #Ensures the background covers the entire element */
+   /* background-attachment: fixed; #Keeps the background fixed in place during scrolling */
+   color: #000000;
+   transition: background-color 0.3s, color 0.3s;
+}
+
+body.default-light {
+   background-color: #fff;
+   color: #000;
+   transition: background-color 0.3s, color 0.3s;
+}
+
+body.default-dark {
+   background-color: #333;
+   color: #fff;
+   transition: background-color 0.3s, color 0.3s;
+}
