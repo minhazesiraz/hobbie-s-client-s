@@ -2,46 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rock+Salt&display=swap');
 
-html,
-body {
-   height: 100%;
-   margin: 0;
-   padding: 0;
-}
-
-/* Theme */
-body.light {
-   background-color: #ffffff;
-   color: #000000;
+/* useTheme */
+body.light,
+body.default-light {
+   background-color: #fff;
+   color: #1f2937;
    transition: background-color 0.3s, color 0.3s;
 }
 
-body.dark {
-   background-color: #333333;
-   color: #ffffff;
+body.dark,
+body.default-dark {
+   background-color: #0f172a;
+   color: #94a3b8;
    transition: background-color 0.3s, color 0.3s;
 }
 
 body.warm {
-   /* min-height: 100%; #Ensures the body is at least as tall as the viewport */
-   background: linear-gradient(45deg, rgba(246, 62, 123, 1) 60%, rgba(246, 62, 123, 0.5) 75%, rgba(246, 62, 123, 1) 90%);
-   background-repeat: no-repeat;
-   /* background-size: cover; #Ensures the background covers the entire element */
-   /* background-attachment: fixed; #Keeps the background fixed in place during scrolling */
-   color: #000000;
+   background-color: #fff7ed;
+   color: #1f2937;
    transition: background-color 0.3s, color 0.3s;
 }
 
-body.default-light {
-   background-color: #fff;
-   color: #000;
-   transition: background-color 0.3s, color 0.3s;
-}
-
-body.default-dark {
-   background-color: #333;
-   color: #fff;
-   transition: background-color 0.3s, color 0.3s;
-}
+/* body {
+   font-family: "Roboto Mono", monospace;
+   font-family: "Roboto", sans-serif;
+   font-family: "Rock Salt", cursive;
+   font-family: "Raleway", sans-serif;
+} */

@@ -28,7 +28,7 @@ const Switch = () => {
                      </svg>
                   </span>
                </button>
-               <button className={`inline-flex h-0 w-0 translate-y-2 flex-col items-center justify-center gap-2 self-center justify-self-center overflow-hidden whitespace-nowrap rounded px-6 text-sm font-medium tracking-wide text-emerald-500 opacity-0 transition duration-300 hover:bg-emerald-100 hover:text-emerald-600 focus:bg-emerald-200 focus:text-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-100 disabled:text-emerald-400 disabled:shadow-none group-hover:h-14 group-hover:w-14 group-hover:translate-y-0 group-hover:opacity-100 ${theme === 'light' ? 'bg-emerald-100' : 'bg-emerald-50'}`} onClick={() => toggleTheme('light')}>
+               <button className={`inline-flex h-0 w-0 translate-y-2 flex-col items-center justify-center gap-2 self-center justify-self-center overflow-hidden whitespace-nowrap rounded px-6 text-sm font-medium tracking-wide text-emerald-500 opacity-0 transition duration-300 hover:bg-emerald-200 hover:text-emerald-600 focus:bg-emerald-200 focus:text-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-100 disabled:text-emerald-400 disabled:shadow-none group-hover:h-14 group-hover:w-14 group-hover:translate-y-0 group-hover:opacity-100 ${theme === 'light' ? 'bg-emerald-200' : 'bg-emerald-100'}`} onClick={() => toggleTheme('light')}>
                   <span className="relative only:-mx-6">
                      <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@ const Switch = () => {
                   </span>
                   <span className="text-xs font-medium">Light</span>
                </button>
-               <button className={`inline-flex h-0 w-0 translate-y-2 flex-col items-center justify-center gap-2 self-center justify-self-center overflow-hidden whitespace-nowrap rounded px-6 text-sm font-medium tracking-wide text-emerald-500 opacity-0 transition delay-[0.05s] duration-300 hover:bg-emerald-100 hover:text-emerald-600 focus:bg-emerald-200 focus:text-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-100 disabled:text-emerald-400 disabled:shadow-none group-hover:h-14 group-hover:w-14 group-hover:translate-y-0 group-hover:opacity-100 ${theme === 'dark' ? 'bg-emerald-100' : 'bg-emerald-50'}`} onClick={() => toggleTheme('dark')}>
+               <button className={`inline-flex h-0 w-0 translate-y-2 flex-col items-center justify-center gap-2 self-center justify-self-center overflow-hidden whitespace-nowrap rounded px-6 text-sm font-medium tracking-wide text-emerald-500 opacity-0 transition delay-[0.05s] duration-300 hover:bg-emerald-200 hover:text-emerald-600 focus:bg-emerald-200 focus:text-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-100 disabled:text-emerald-400 disabled:shadow-none group-hover:h-14 group-hover:w-14 group-hover:translate-y-0 group-hover:opacity-100 ${theme === 'dark' ? 'bg-emerald-200' : 'bg-emerald-100'}`} onClick={() => toggleTheme('dark')}>
                   <span className="relative only:-mx-6">
                      <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@ const Switch = () => {
                   </span>
                   <span className="text-xs font-medium">Dark</span>
                </button>
-               <button className={`inline-flex h-0 w-0 translate-y-2 flex-col items-center justify-center gap-2 self-center justify-self-center overflow-hidden whitespace-nowrap rounded px-6 text-sm font-medium tracking-wide text-emerald-500 opacity-0 transition delay-[0.10s] duration-300 hover:bg-emerald-100 hover:text-emerald-600 focus:bg-emerald-200 focus:text-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-100 disabled:text-emerald-400 disabled:shadow-none group-hover:h-14 group-hover:w-14 group-hover:translate-y-0 group-hover:opacity-100 ${theme === 'warm' ? 'bg-emerald-100' : 'bg-emerald-50'}`} onClick={() => toggleTheme('warm')}>
+               <button className={`inline-flex h-0 w-0 translate-y-2 flex-col items-center justify-center gap-2 self-center justify-self-center overflow-hidden whitespace-nowrap rounded px-6 text-sm font-medium tracking-wide text-emerald-500 opacity-0 transition delay-[0.10s] duration-300 hover:bg-emerald-200 hover:text-emerald-600 focus:bg-emerald-200 focus:text-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-100 disabled:text-emerald-400 disabled:shadow-none group-hover:h-14 group-hover:w-14 group-hover:translate-y-0 group-hover:opacity-100 ${theme === 'warm' ? 'bg-emerald-200' : 'bg-emerald-100'}`} onClick={() => toggleTheme('warm')}>
                   <span className="relative only:-mx-6">
                      <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@ const Switch = () => {
                   </span>
                   <span className="text-xs font-medium">Warm</span>
                </button>
-               <button className={`inline-flex h-0 w-0 translate-y-2 flex-col items-center justify-center gap-2 self-center justify-self-center overflow-hidden whitespace-nowrap rounded px-6 text-sm font-medium tracking-wide text-emerald-500 opacity-0 transition delay-[0.15s] duration-300 hover:bg-emerald-100 hover:text-emerald-600 focus:bg-emerald-200 focus:text-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-100 disabled:text-emerald-400 disabled:shadow-none group-hover:h-14 group-hover:w-14 group-hover:translate-y-0 group-hover:opacity-100 ${theme === 'default' ? 'bg-emerald-100' : 'bg-emerald-50'}`} onClick={() => toggleTheme('default')}>
+               <button className={`inline-flex h-0 w-0 translate-y-2 flex-col items-center justify-center gap-2 self-center justify-self-center overflow-hidden whitespace-nowrap rounded px-6 text-sm font-medium tracking-wide text-emerald-500 opacity-0 transition delay-[0.15s] duration-300 hover:bg-emerald-200 hover:text-emerald-600 focus:bg-emerald-200 focus:text-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-100 disabled:text-emerald-400 disabled:shadow-none group-hover:h-14 group-hover:w-14 group-hover:translate-y-0 group-hover:opacity-100 ${(theme === 'default-dark' || theme === 'default-light') ? 'bg-emerald-200' : 'bg-emerald-100'}`} onClick={() => toggleTheme('default')}>
                   <span className="relative only:-mx-6">
                      <svg
                         xmlns="http://www.w3.org/2000/svg"

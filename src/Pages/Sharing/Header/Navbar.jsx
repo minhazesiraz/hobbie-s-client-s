@@ -1,7 +1,12 @@
 import { useState } from "react";
+import { FaCartPlus, FaRegUser } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import useHelper from "../../../Clip/useHelper";
+import Ebb from "./Ebb";
 
 const Navbar = () => {
    const [isToggleOpen, setIsToggleOpen] = useState(false);
+   const { user } = useHelper();
 
    const links = <>
       <li role="none" className="flex items-stretch">
@@ -9,7 +14,7 @@ const Navbar = () => {
             role="menuitem"
             aria-haspopup="false"
             className="flex items-center gap-2 py-2 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none md:px-2"
-            href="javascript:void(0)"
+            href=""
          >
             <span>Blog</span>
          </a>
@@ -20,7 +25,7 @@ const Navbar = () => {
             aria-current="page"
             aria-haspopup="false"
             className="flex items-center gap-2 py-2 text-emerald-500 transition-colors duration-300 hover:text-emerald-600 focus:text-emerald-600 focus:outline-none focus-visible:outline-none md:px-2"
-            href="javascript:void(0)"
+            href=""
          >
             <span>Planning</span>
          </a>
@@ -30,7 +35,7 @@ const Navbar = () => {
             role="menuitem"
             aria-haspopup="false"
             className="flex items-center gap-2 py-2 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none md:px-2"
-            href="javascript:void(0)"
+            href=""
          >
             <span>About me</span>
          </a>
@@ -38,9 +43,9 @@ const Navbar = () => {
    </>
 
    return (
-      <header className="fixed top-0 left-0 right-0">
-         <div className="border-b-1 relative z-20 w-full border-b border-slate-200 bg-transparent shadow-lg shadow-slate-700/5 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full after:bg-slate-200 md:border-slate-200 md:backdrop-blur-sm md:after:hidden">
-            <div className="relative mx-auto max-w-full px-6 md:max-w-5xl lg:max-w-7xl xl:max-w-[96rem]">
+      <header className="fixed top-0 left-0 right-0 z-10">
+         <div className="border-b-1 relative z-20 border-b border-slate-200 bg-transparent shadow-lg shadow-slate-700/5 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full after:bg-slate-200 md:border-slate-200 md:backdrop-blur-sm md:after:hidden">
+            <div className="relative mx-auto px-6 md:max-w-5xl lg:max-w-7xl">
                <nav
                   aria-label="main navigation"
                   className="flex h-14 items-stretch justify-between font-medium text-slate-700"
@@ -52,7 +57,7 @@ const Navbar = () => {
                      aria-label="WindUI logo"
                      aria-current="page"
                      className="flex items-center gap-2 whitespace-nowrap py-2 text-lg focus:outline-none md:flex-1 uppercase font-rock-salt"
-                     href="javascript:void(0)"
+                     href=""
                   >
                      <span className="text-emerald-500">Minhaz</span> E Siraz
                   </a>
@@ -97,23 +102,23 @@ const Navbar = () => {
                      }
                   </ul>
                   <div className="ml-auto flex items-center px-6 md:ml-0 md:p-0">
+                     <span className="inline-flex items-center cursor-pointer justify-center gap-1 rounded ring-2 ring-inherit ring-offset-1 p-1 text-lg mr-3">
+                        <FaCartPlus />
+                        10<span className="sr-only"> new emails</span>
+                     </span>
                      {/*        <!-- Avatar --> */}
-                     <a
-                        href="#"
-                        className="relative inline-flex h-10 w-10 items-center justify-center rounded-full text-white"
-                     >
-                        <img
-                           src="https://i.pravatar.cc/40?img=35"
-                           alt="user name"
-                           title="user name"
-                           width="40"
-                           height="40"
-                           className="max-w-full rounded-full"
-                        />
-                        <span className="absolute bottom-0 right-0 inline-flex items-center justify-center gap-1 rounded-full border-2 border-white bg-green-500 p-1 text-sm text-white">
-                           <span className="sr-only"> 7 new emails </span>
-                        </span>
-                     </a>
+                     {
+                        user ? <>
+                           {/* dropdowns */}
+                           <Ebb />
+                        </>
+                           :
+                           <Link to="/log-in">
+                              <button className="flex items-center gap-2 rounded h-4/5 ring-2 ring-inherit ring-offset-1 p-1 text-lg">
+                                 <FaRegUser /> Log in
+                              </button>
+                           </Link>
+                     }
                      {/*        <!-- End Avatar --> */}
                   </div>
                </nav>

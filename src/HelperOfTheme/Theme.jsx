@@ -32,6 +32,8 @@ const Theme = ({ children }) => {
       if (newTheme === 'default') {
          const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
          const defaultThemeClass = prefersDarkScheme ? 'default-dark' : 'default-light';
+         /* Notes */
+         setTheme(defaultThemeClass);
          document.body.classList.add(defaultThemeClass);
       } else {
          document.body.classList.add(newTheme);

@@ -12,6 +12,7 @@ export default {
          },
          colors: {
             'basic': '#07a8ed',
+            'warm': '#fff7d8',
             'pink-bright': '#f63e7b',
          }
       },
