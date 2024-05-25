@@ -8,11 +8,11 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 default-dark & dark {
-   background-color: bg-slate-900 (0f172a);
-   color: bg-slate-400 (94a3b8);
-   bg-emerald-500 || bg-green-500 - color : Link
-   background-color: bg-slate-800 (1e293b); - background-color : Components
-   bg-sky-400 - highlight
+   background-color: bg-slate-900 (#0f172a);
+   color: bg-slate-400 (#94a3b8);
+   bg-emerald-500 (#00d3fb) || bg-green-500 (#22c55e) - color : active Link
+   bg-sky-500 (#0ea5e9) - highlight
+   background-color: bg-slate-800 (#1e293b); - background-color : nav
 }
 
 default-light & light {
@@ -20,5 +20,5 @@ default-light & light {
 }
 
 warm {
-   background-color: bg-orange-50 (fff7ed);
+   background-color: bg-orange-50 (#fff7ed);
 }

@@ -7,9 +7,14 @@ const Footer = () => {
 
    return (
       <>
-         <footer className="w-full text-slate-500 bg-slate-100">
+         <footer
+            className={`w-full
+         ${(theme === 'dark' || theme === 'default-dark') ? 'bg-slate-800 text-slate-400 border-t border-slate-300' : ''}
+         ${(theme === 'light' || theme === 'default-light') ? 'bg-slate-100 text-slate-800 border-t border-slate-300' : ''}
+         ${theme === 'warm' ? 'bg-orange-50 text-slate-800 border-t border-slate-300' : ''}`}
+         >
             {/* <!-- Main footer --> */}
-            <div className="border-t border-slate-200 pt-8 pb-4 text-sm max-w-screen-xl mx-auto">
+            <div className="pt-8 pb-4 text-sm max-w-screen-xl mx-auto">
                <div className="container mx-auto px-6">
                   <div className="grid grid-cols-4 gap-6 sm:grid-cols-8 md:grid-cols-10">
                      <div
@@ -20,10 +25,10 @@ const Footer = () => {
                            id="WindUI-5-logo"
                            aria-label="WindUI logo"
                            aria-current="page"
-                           className="mb-6 flex items-center gap-2 whitespace-nowrap text-base font-medium leading-6 text-slate-700 focus:outline-none font-rock-salt uppercase"
+                           className="mb-6 flex items-center gap-2 whitespace-nowrap text-base font-medium leading-6 focus:outline-none font-rock-salt uppercase"
                            href=""
                         >
-                           <span className="text-emerald-500">Minhaz</span> E Siraz
+                           <span className="text-sky-500">Minhaz</span> E Siraz
                         </a>
                         <p className={theme === 'dark' ? 'text-red-500' : 'text-slate-600'}>
                            Expertly made, responsive, accessible components in React and
@@ -53,7 +58,7 @@ const Footer = () => {
                         aria-labelledby="footer-product-5-logo"
                      >
                         <h3
-                           className="mb-6 text-base font-medium text-slate-700"
+                           className="mb-6 text-base font-medium"
                            id="footer-product-5-logo"
                         >
                            Services
@@ -88,7 +93,7 @@ const Footer = () => {
                                  href=""
                                  className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
                               >
-                                 SEO Services <span className="bg-basic p-1 rounded text-xs">NEW</span>
+                                 SEO Services <span className="bg-basic text-white p-1 rounded text-xs">NEW</span>
                               </a>
                            </li>
                         </ul>
@@ -98,7 +103,7 @@ const Footer = () => {
                         aria-labelledby="footer-about-5-logo"
                      >
                         <h3
-                           className="mb-6 text-base font-medium text-slate-700"
+                           className="mb-6 text-base font-medium"
                            id="footer-about-5-logo"
                         >
                            About us
@@ -151,7 +156,7 @@ const Footer = () => {
                         aria-labelledby="footer-get-in-touch-5-logo"
                      >
                         <h3
-                           className="mb-6 text-base font-medium text-slate-700"
+                           className="mb-6 text-base font-medium"
                            id="footer-get-in-touch-5-logo"
                         >
                            Get in touch

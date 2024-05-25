@@ -1,43 +1,46 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useHelper from "../../../Clip/useHelper";
+import useTheme from "../../../Clip/useTheme";
+import dashboard from "../../../assets/dashboard.svg";
 import usersLogout from "../../../assets/usersLogout.svg";
 
 const Ebb = () => {
-   const { logout } = useHelper();
+   const { user, logout } = useHelper();
    const [isOpen, setIsOpen] = useState(false);
    const wrapperRef = useRef(null);
    const navigate = useNavigate();
+   const { theme } = useTheme();
 
-   const navigationItems = [
+   const navLinks = [
       {
          linkName: "Dashboard",
-         icon: "dashboard.svg", // replace with actual path
+         icon: dashboard,
          sortDescription: "Quick overview of all basic metrics and settings",
          path: "/log-in"
       },
       {
          linkName: "Metrics and analytics",
-         icon: "analytics.svg", // replace with actual path
+         icon: usersLogout,
          sortDescription: "Detailed analytic date reviews management",
          path: "/metrics-analytics"
       },
       { separator: true },
       {
          linkName: "Multi-Channel Funnels overview",
-         icon: "channel.svg", // replace with actual path
+         icon: usersLogout,
          sortDescription: "Generated from conversion paths, the sequences of interactions",
          path: "/multi-channel-funnels"
       },
       {
          linkName: "User settings",
-         icon: "user.svg", // replace with actual path
+         icon: usersLogout,
          sortDescription: "User settings allow you to configure your email preferences",
          path: "/user-settings"
       },
       {
          linkName: "User Profile",
-         icon: "userProfile.svg", // replace with actual path
+         icon: usersLogout,
          sortDescription: "A collection of settings and information about your account",
          path: "/user-profile"
       },
@@ -45,7 +48,7 @@ const Ebb = () => {
       {
          linkName: "Log out",
          icon: usersLogout,
-         sortDescription: "A collection of settings and information about your account",
+         /* sortDescription: "A collection of settings and information about your account", */
          path: "/log-in"
       },
    ];
@@ -86,17 +89,17 @@ const Ebb = () => {
             ref={wrapperRef}
          >
             <span>
-               <a href="#">
-                  <img src="https://i.pravatar.cc/48?img=1" alt="" className="rounded h-4/5 ring-2 ring-inherit ring-offset-1 hover:shadow-slate-800" />
+               <a>
+                  <img src={user?.photoURL ? user.photoURL : "https://i.pravatar.cc/48?img=1"} alt="" className="rounded h-10 w-10 ring-1 ring-sky-500 ring-offset-1 hover:shadow-slate-800" />
                </a>
             </span>
          </button>
          {/*  <!-- End Dropdown trigger --> */}
          {/*  <!-- Start Menu list --> */}
          <ul
-            className={`${isOpen ? "flex" : "hidden"} absolute top-full right-2 z-10 mt-1 w-72 list-none flex-col rounded bg-white py-2 shadow-md shadow-slate-500/10`}
+            className={`${isOpen ? "flex" : "hidden"} ${(theme === 'dark' || theme === 'default-dark') ? 'bg-slate-800 text-slate-400' : ''} ${(theme === 'light' || theme === 'default-light') ? 'bg-slate-100 text-slate-800' : ''} ${theme === 'warm' ? 'bg-orange-50 text-slate-800' : ''} absolute top-[105%] right-2 z-10 mt-1 w-72 list-none flex-col rounded py-2 shadow-md shadow-slate-500/10`}
          >
-            {navigationItems.map((job, i) => {
+            {navLinks.map((job, i) => {
                if (job.separator) {
                   return (
                      <li key={`separator-${i}`} role="separator" className="border-b border-slate-200"></li>
@@ -107,10 +110,10 @@ const Ebb = () => {
                         <Link
                            to={job.path}
                            onClick={job.linkName === 'Log out' ? () => handleLogout() : undefined}
-                           className="flex items-start justify-start gap-2 p-2 px-5 transition-colors duration-300 hover:bg-indigo-50 hover:text-indigo-500 focus:bg-indigo-50 focus:text-indigo-600 focus:outline-none focus-visible:outline-none"
+                           className={`flex items-start justify-start gap-2 p-2 px-5 transition-colors duration-300 focus:outline-none focus-visible:outline-none ${(theme === 'dark' || theme === 'default-dark') ? 'hover:bg-slate-900 hover:text-slate-400 focus:bg-slate-900 focus:text-slate-400' : ''} ${(theme === 'light' || theme === 'default-light') ? 'hover:bg-white hover:text-slate-800 focus:bg-slate-50 focus:text-slate-800' : ''} ${theme === 'warm' ? 'hover:bg-orange-100 hover:text-slate-800 focus:bg-slate-50 focus:text-slate-800' : ''}`}
                            aria-current=""
                         >
-                           <span className="flex-shrink-0 w-5 h-5">
+                           <span className="flex-shrink-0 w-5 h-5 text-white">
                               <img src={job.icon} alt="" />
                            </span>
                            <span className="flex flex-col gap-1 overflow-hidden whitespace-nowrap">
