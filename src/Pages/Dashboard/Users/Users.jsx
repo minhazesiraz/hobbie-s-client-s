@@ -11,7 +11,7 @@ const Users = () => {
    const [isModalOpen, setIsModalOpen] = useState(false);
    const [selectedUser, setSelectedUser] = useState(null);
 
-   const { data: users = [] } = useQuery({
+   const { data: users = [], refetch } = useQuery({
       queryKey: ["users"],
       queryFn: async () => {
          const res = await encrypted.get("/users");
@@ -22,7 +22,13 @@ const Users = () => {
 
    const handleDeleteAccount = (user) => {
       console.log("Deleting user:", user);
-      // Your delete logic here
+      encrypted.delete(`/users/${user._id}`).then((res) => {
+         if (res.data.deletedCount > 0) {
+            refetch();
+            // Todo - Modal
+            alert('Deleted successfully.');
+         }
+      })
    }
 
    const openModal = (user) => {
@@ -61,17 +67,17 @@ const Users = () => {
                            {user.email}
                         </td>
                         <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                           {user.created}
+                           {user.creationTime}
                         </td>
                         <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                           {user.signed_in}
+                           {/* {user.lastSignInTime} */}
                         </td>
                         <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
                            {/* {job?.role} */}
                            {user.role === 'moderator' ? (
                               'Moderator'
-                           ) : user.role === 'admin' ? (
-                              'Admin'
+                           ) : user.role === 'administrator' ? (
+                              'Administrator'
                            ) : (
                               <Link to={`/dashboard/designate/${user._id}`}>
                                  <button className="bg-sky-500 hover:bg-sky-700 text-white rounded p-2">

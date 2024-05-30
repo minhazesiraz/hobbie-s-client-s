@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "../Layouts/Dashboard";
 import Main from "../Layouts/Main";
 import Blogs from "../Pages/Blogs/Blogs";
+import Designate from "../Pages/Dashboard/Users/Designate";
 import Users from "../Pages/Dashboard/Users/Users";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -40,7 +41,12 @@ export const router = createBrowserRouter([
          {
             path: "users",
             element: <Users />
-         }
+         },
+         {
+            path: "designate/:uid",
+            element: <Designate />,
+            loader: ({ params }) => fetch(`http://localhost:5000/users/designate/${params.uid}`)
+         },
          /* Moderator Routes */
          /* Member Routes */
       ]

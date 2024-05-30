@@ -28,13 +28,16 @@ const Signup = () => {
          .then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
+            console.log(user.metadata.creationTime);
 
             updateUserProfile(name).then(() => {
                // Profile updated!
 
                const userDetails = {
                   name: name,
-                  email: email
+                  email: email,
+                  lastSignInTime: user.metadata.lastSignInTime,
+                  creationTime: user.metadata.creationTime
                }
 
                decrypted.post("/users", userDetails).then((res) => {
