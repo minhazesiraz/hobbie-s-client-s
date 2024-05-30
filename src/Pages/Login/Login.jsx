@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaFacebook, FaGithub, FaGoogle, FaMicrosoft, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import useDecrypted from "../../Clip/useDecrypted";
 import useHelper from "../../Clip/useHelper";
 import useTheme from "../../Clip/useTheme";
 
@@ -9,6 +10,7 @@ const Login = () => {
    const { theme } = useTheme();
    const { login, loginWithGoogle } = useHelper();
    const navigate = useNavigate();
+   const decrypted = useDecrypted();
    const [showPassword, setShowPassword] = useState(false);
 
    // const { register, handleSubmit, formState: { errors, isSubmitting, isDirty, isValid } } = useForm({ mode: "onChange" });
@@ -20,31 +22,41 @@ const Login = () => {
       const password = data.password;
       // console.log(email, password);
 
-      login(email, password)
-         .then((userCredential) => {
-            const user = userCredential.user;
-            console.log(user);
-            navigate('/');
-         })
-         .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
-         })
+      login(email, password).then((userCredential) => {
+         const user = userCredential.user;
+         console.log(user);
+         navigate('/');
+      }).catch((error) => {
+         const errorCode = error.code;
+         const errorMessage = error.message;
+         console.log(errorCode, errorMessage);
+      })
    }
 
    const handleLoginWithGoogle = () => {
-      loginWithGoogle()
-         .then((result) => {
-            // The signed-in user info.
-            const user = result.user;
-            console.log(user);
-            navigate('/');
+      loginWithGoogle().then((result) => {
+         // The signed-in user info.
+         const user = result.user;
+         console.log(user);
+
+         const userDetails = {
+            name: user?.displayName,
+            email: user?.email
+         }
+
+         decrypted.post("/users", userDetails).then((res) => {
+            if (res.data.insertedId) {
+               console.log("User profile info updated.")
+               navigate('/');
+            }
          }).catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
+            console.log(error);
          })
+      }).catch((error) => {
+         const errorCode = error.code;
+         const errorMessage = error.message;
+         console.log(errorCode, errorMessage);
+      })
    }
 
    return (

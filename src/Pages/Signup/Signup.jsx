@@ -2,14 +2,16 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaFacebook, FaGithub, FaGoogle, FaMicrosoft, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useDecrypted from "../../Clip/useDecrypted";
 import useHelper from "../../Clip/useHelper";
 import useTheme from "../../Clip/useTheme";
 import "./Signup.css";
 
 const Signup = () => {
    const { theme } = useTheme();
-   const { createUser } = useHelper();
+   const { createUser, updateUserProfile } = useHelper();
    const [showPassword, setShowPassword] = useState(false);
+   const decrypted = useDecrypted();
 
    // const { register, handleSubmit, formState: { errors, isSubmitting, isDirty, isValid } } = useForm({ mode: "onChange" });
    const { register, handleSubmit, formState: { isValid } } = useForm({ mode: "onChange" });
@@ -26,6 +28,26 @@ const Signup = () => {
          .then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
+
+            updateUserProfile(name).then(() => {
+               // Profile updated!
+
+               const userDetails = {
+                  name: name,
+                  email: email
+               }
+
+               decrypted.post("/users", userDetails).then((res) => {
+                  if (res.data.insertedId) {
+                     console.log("User profile info updated.")
+                  }
+               }).catch((error) => {
+                  console.log(error);
+               })
+
+            }).catch((error) => {
+               console.log(error);
+            });
          })
          .catch((error) => {
             const errorCode = error.code;

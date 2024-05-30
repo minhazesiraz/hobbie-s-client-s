@@ -17,7 +17,7 @@ const Ebb = () => {
          linkName: "Dashboard",
          icon: dashboard,
          sortDescription: "Quick overview of all basic metrics and settings",
-         path: "/log-in"
+         path: "/dashboard"
       },
       {
          linkName: "Metrics and analytics",

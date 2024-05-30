@@ -32,8 +32,8 @@ const Navbar = () => {
 
    const navLinks = [
       {
-         linkName: 'Blog',
-         path: '/',
+         linkName: 'Blogs',
+         path: '/blogs',
       },
       {
          linkName: 'Planning',
@@ -56,7 +56,7 @@ const Navbar = () => {
   ${theme === 'light' || theme === 'default-light' ? (isScrolled ? 'bg-slate-100 text-slate-800 border-slate-400 md:border-slate-400 shadow-lg shadow-slate-700/20' : '') : ''}
   ${theme === 'warm' && isScrolled ? 'bg-orange-50 border-slate-400 md:border-slate-400 shadow-lg shadow-slate-700/20' : ''}`}
          >
-            <div className="relative mx-auto px-6 md:max-w-5xl lg:max-w-7xl">
+            <div className="relative mx-auto px-4 md:max-w-5xl lg:max-w-7xl">
                <nav
                   aria-label="main navigation"
                   className="flex h-14 items-stretch justify-between font-medium"

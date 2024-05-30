@@ -11,14 +11,10 @@ const Main = () => {
 
    return (
       <>
-         {
-            without || <Navbar />
-         }
+         {without || <Navbar />}
          <Outlet />
          <Switch />
-         {
-            without || <Footer />
-         }
+         {without || <Footer />}
       </>
    );
 };
