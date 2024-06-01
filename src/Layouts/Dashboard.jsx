@@ -24,13 +24,8 @@ const Dashboard = () => {
          icons: dashboard,
       },
       {
-         linkName: 'Tasks',
-         path: '/tasks',
-         icons: dashboard,
-      },
-      {
-         linkName: 'Notifications',
-         path: '/notifications',
+         linkName: 'Create a posts',
+         path: '/dashboard/create-a-posts',
          icons: dashboard,
       },
    ]
